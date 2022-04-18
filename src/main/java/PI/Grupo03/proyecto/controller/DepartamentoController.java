@@ -21,7 +21,7 @@ public class DepartamentoController {
 	@Autowired
 	private IDepartamentoService service;
 	
-	@GetMapping("/listar")
+	@GetMapping("/listarDep")
 	public String listar(Model model) {
 		List<Departamento>departamentos=service.listar();
 		model.addAttribute("departamentos", departamentos);
@@ -29,13 +29,13 @@ public class DepartamentoController {
 		
 	}
 	
-	@GetMapping("/new")
+	@GetMapping("/newDep")
 	public String agregar(Model model) {
 		model.addAttribute("departamento", new Departamento());
 		return "form_departamento";
 	}
 	
-	@PostMapping("/save")
+	@PostMapping("/saveDep")
 	public String save(Departamento d, Model model) {
 		service.save(d);
 		return "redirect:/listar";
