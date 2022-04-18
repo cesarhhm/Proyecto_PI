@@ -48,5 +48,6 @@ public class PropietarioController {
 		return "redirect:/listar";
 	}
 	
+	//Prueba de Commit
 	
 }
