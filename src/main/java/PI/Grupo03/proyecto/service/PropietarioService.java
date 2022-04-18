@@ -1,6 +1,8 @@
 package PI.Grupo03.proyecto.service;
 
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,8 +23,25 @@ public class PropietarioService implements IPropietarioService {
 
 
 	@Override
-	public Propietario insertaActualizaPropietario(Propietario obj) {
-		// TODO Auto-generated method stub
-		return null;
+	public Optional<Propietario> listarId(int idPropietario) {
+		return data.findById(idPropietario);
 	}
+	
+	@Override
+	public int save(Propietario obj) {
+		int res=0;
+		Propietario propietario=data.save(obj);
+		if(!propietario.equals(null)) {
+			res=1;
+		}
+		return res;
+	}
+	
+	@Override
+	public void delete(int idPropietario) {
+		data.deleteById(idPropietario);
+		
+	}
+	
+
 }

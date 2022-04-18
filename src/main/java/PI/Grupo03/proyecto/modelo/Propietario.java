@@ -18,7 +18,7 @@ public class Propietario {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_propietario;
+	private int idPropietario;
 	private String nombre;
 	private String ape_paterno;
 	private String ape_materno;
@@ -31,14 +31,14 @@ public class Propietario {
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	@Temporal(TemporalType.DATE)
 	private Date fecha_nac;
-	public int getId_propietario() {
-		return id_propietario;
+	public int getIdPropietario() {
+		return idPropietario;
 	}
 	
 	
 	
-	public void setId_propietario(int id_propietario) {
-		this.id_propietario = id_propietario;
+	public void setIdPropietario(int idPropietario) {
+		this.idPropietario = idPropietario;
 	}
 	public String getNombre() {
 		return nombre;
