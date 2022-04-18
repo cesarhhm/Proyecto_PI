@@ -23,228 +23,127 @@ public class Departamento {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_depa;
-	private int nro_depa;
-	private int hab_depa;
-	private String con_depa;
-	private int met_depa;
-	private int por_depa;
-	private int tel_depa;
+	private int idDepartamento;
+	private int numero;
+	private int habitado;
+	private String condiciones;
+	private int area;
+	private int porcentajeIndiviso;
+	private int telefono;
 
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_edi")
+	@JoinColumn(name = "idEdificio")
 	private Edificio edificio;
 	
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	@Temporal(TemporalType.DATE)
-	private Date per_depa;
+	private Date periodoContrato;
 	
-	private String edi_depa;
+	private String tipoDepartamento;
 	
 	public Departamento() {
 		// TODO Auto-generated constructor stub
 	}
-	
-	
 
-
-
-
-	public Departamento(int id_depa, int nro_depa, int hab_depa, String con_depa, int met_depa, int por_depa,
-			int tel_depa, Edificio edificio, Date per_depa, String edi_depa) {
+	public Departamento(int idDepartamento, int numero, int habitado, String condiciones, int area,
+			int porcentajeIndiviso, int telefono, Edificio edificio, Date periodoContrato, String tipoDepartamento) {
 		super();
-		this.id_depa = id_depa;
-		this.nro_depa = nro_depa;
-		this.hab_depa = hab_depa;
-		this.con_depa = con_depa;
-		this.met_depa = met_depa;
-		this.por_depa = por_depa;
-		this.tel_depa = tel_depa;
+		this.idDepartamento = idDepartamento;
+ 		this.numero = numero;
+		this.habitado = habitado;
+		this.condiciones = condiciones;
+		this.area = area;
+		this.porcentajeIndiviso = porcentajeIndiviso;
+		this.telefono = telefono;
 		this.edificio = edificio;
-		this.per_depa = per_depa;
-		this.edi_depa = edi_depa;
+		this.periodoContrato = periodoContrato;
+		this.tipoDepartamento = tipoDepartamento;
 	}
 
-
-
-
-
-
-	public int getId_depa() {
-		return id_depa;
+	public int getIdDepartamento() {
+		return idDepartamento;
 	}
 
-
-
-
-
-
-	public void setId_depa(int id_depa) {
-		this.id_depa = id_depa;
+	public void setIdDepartamento(int idDepartamento) {
+		this.idDepartamento = idDepartamento;
 	}
 
-
-
-
-
-
-	public int getNro_depa() {
-		return nro_depa;
+	public int getNumero() {
+		return numero;
 	}
 
-
-
-
-
-
-	public void setNro_depa(int nro_depa) {
-		this.nro_depa = nro_depa;
+	public void setNumero(int numero) {
+		this.numero = numero;
 	}
 
-
-
-
-
-
-	public int getHab_depa() {
-		return hab_depa;
+	public int getHabitado() {
+		return habitado;
 	}
 
-
-
-
-
-
-	public void setHab_depa(int hab_depa) {
-		this.hab_depa = hab_depa;
+	public void setHabitado(int habitado) {
+		this.habitado = habitado;
 	}
 
-
-
-
-
-
-	public String getCon_depa() {
-		return con_depa;
+	public String getCondiciones() {
+		return condiciones;
 	}
 
-
-
-
-
-
-	public void setCon_depa(String con_depa) {
-		this.con_depa = con_depa;
+	public void setCondiciones(String condiciones) {
+		this.condiciones = condiciones;
 	}
 
-
-
-
-
-
-	public int getMet_depa() {
-		return met_depa;
+	public int getArea() {
+		return area;
 	}
 
-
-
-
-
-
-	public void setMet_depa(int met_depa) {
-		this.met_depa = met_depa;
+	public void setArea(int area) {
+		this.area = area;
 	}
 
-
-
-
-
-
-	public int getPor_depa() {
-		return por_depa;
+	public int getPorcentajeIndiviso() {
+		return porcentajeIndiviso;
 	}
 
-
-
-
-
-
-	public void setPor_depa(int por_depa) {
-		this.por_depa = por_depa;
+	public void setPorcentajeIndiviso(int porcentajeIndiviso) {
+		this.porcentajeIndiviso = porcentajeIndiviso;
 	}
 
-
-
-
-
-
-	public int getTel_depa() {
-		return tel_depa;
+	public int getTelefono() {
+		return telefono;
 	}
 
-
-
-
-
-
-	public void setTel_depa(int tel_depa) {
-		this.tel_depa = tel_depa;
+	public void setTelefono(int telefono) {
+		this.telefono = telefono;
 	}
-
-
-
-
-
 
 	public Edificio getEdificio() {
 		return edificio;
 	}
 
-
-
-
-
-
 	public void setEdificio(Edificio edificio) {
 		this.edificio = edificio;
 	}
 
-
-
-
-
-
-	public Date getPer_depa() {
-		return per_depa;
+	public Date getPeriodoContrato() {
+		return periodoContrato;
 	}
 
-
-
-
-
-
-	public void setPer_depa(Date per_depa) {
-		this.per_depa = per_depa;
+	public void setPeriodoContrato(Date periodoContrato) {
+		this.periodoContrato = periodoContrato;
 	}
 
-
-
-
-
-
-	public String getEdi_depa() {
-		return edi_depa;
+	public String getTipoDepartamento() {
+		return tipoDepartamento;
 	}
 
-
-
-
-
-
-	public void setEdi_depa(String edi_depa) {
-		this.edi_depa = edi_depa;
+	public void setTipoDepartamento(String tipoDepartamento) {
+		this.tipoDepartamento = tipoDepartamento;
 	}
+	
+	
+
+
 
 
 

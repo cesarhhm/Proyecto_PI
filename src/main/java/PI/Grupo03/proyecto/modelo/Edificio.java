@@ -12,14 +12,15 @@ public class Edificio {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_edi;
+	private int idEdificio;
 	private String nombre;
 	
-	public int getId_edi() {
-		return id_edi;
+	
+	public int getIdEdificio() {
+		return idEdificio;
 	}
-	public void setId_edi(int id_edi) {
-		this.id_edi = id_edi;
+	public void setIdEdificio(int idEdificio) {
+		this.idEdificio = idEdificio;
 	}
 	public String getNombre() {
 		return nombre;
@@ -27,5 +28,7 @@ public class Edificio {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+	
+
 	
 }
