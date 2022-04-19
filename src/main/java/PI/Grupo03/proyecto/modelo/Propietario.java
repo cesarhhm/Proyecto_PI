@@ -147,6 +147,6 @@ public class Propietario {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 	
-	
+
 	
 }

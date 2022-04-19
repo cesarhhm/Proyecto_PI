@@ -54,4 +54,5 @@ public class PropietarioController {
 		return "redirect:/listarPropietario";
 	}
 
+
 }

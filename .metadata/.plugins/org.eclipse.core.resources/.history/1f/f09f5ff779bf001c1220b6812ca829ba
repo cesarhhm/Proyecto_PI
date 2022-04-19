@@ -21,7 +21,11 @@ public class DepartamentoController {
 	@Autowired
 	private IDepartamentoService service;
 	
+<<<<<<< HEAD
 	@GetMapping("/listarDepartamento")
+=======
+	@GetMapping("/listarDep")
+>>>>>>> branch 'master' of https://github.com/cesarhhm/Proyecto_PI.git
 	public String listar(Model model) {
 		List<Departamento>departamentos=service.listar();
 		model.addAttribute("departamentos", departamentos);
@@ -29,14 +33,21 @@ public class DepartamentoController {
 		
 	}
 	
-
+<<<<<<< HEAD
 	@GetMapping("/newDepartamento")
+=======
+	@GetMapping("/newDep")
+>>>>>>> branch 'master' of https://github.com/cesarhhm/Proyecto_PI.git
 	public String agregar(Model model) {
 		model.addAttribute("departamento", new Departamento());
 		return "form_departamento";
 	}
 	
+<<<<<<< HEAD
 	@PostMapping("/saveDepartamento")
+=======
+	@PostMapping("/saveDep")
+>>>>>>> branch 'master' of https://github.com/cesarhhm/Proyecto_PI.git
 	public String save(Departamento d, Model model) {
 		service.save(d);
 		return "redirect:/listarDepartamento";
