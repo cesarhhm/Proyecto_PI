@@ -21,7 +21,7 @@ public class DepartamentoController {
 	@Autowired
 	private IDepartamentoService service;
 	
-	@GetMapping("/listar")
+	@GetMapping("/listarDepartamento")
 	public String listar(Model model) {
 		List<Departamento>departamentos=service.listar();
 		model.addAttribute("departamentos", departamentos);
@@ -29,16 +29,16 @@ public class DepartamentoController {
 		
 	}
 	
-	@GetMapping("/new")
+	@GetMapping("/newDepartamento")
 	public String agregar(Model model) {
 		model.addAttribute("departamento", new Departamento());
 		return "form_departamento";
 	}
 	
-	@PostMapping("/save")
+	@PostMapping("/saveDepartamento")
 	public String save(Departamento d, Model model) {
 		service.save(d);
-		return "redirect:/listar";
+		return "redirect:/listarDepartamento";
 	}
 	
 	@GetMapping("/editar/{idDepartamento}")	
@@ -51,7 +51,7 @@ public class DepartamentoController {
 	@GetMapping("/eliminar/{idDepartamento}")	
 	public String delete(Model model, @PathVariable int idDepartamento) {
 		service.delete(idDepartamento);
-		return "redirect:/listar";
+		return "redirect:/listarDepartamento";
 	}
 
 }

@@ -8,10 +8,10 @@
 <body>
 	<div class="container mt-4">
 		<div class="d-flex justify-content-center">
-			<form th:action="@{/save}" th:object=${departamento} method="POST" class="content">
+			<form th:action="@{/saveDepartamento}" th:object=${departamento} method="POST" class="content">
 				<div class="card">
 					<div class="card-header">
-						<h3>Insertar Departamento</h3>
+						<h3>Modulo Departamento</h3>
 					</div>
 					<div class="card-body">
 						<div class="form-group">
@@ -52,7 +52,7 @@
 						</div>
 						<div class="form-group">
 							<label>Edificio</label>
-							<input th:field="*{Edificio.nombre}" type="text" class="form-control"/>
+							<input th:field="*{Edificio.idEdificio}" type="text" class="form-control"/>
 						</div>
 					</div>
 					<div class="card-footer">

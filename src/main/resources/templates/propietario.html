@@ -2,13 +2,13 @@
 <html xmlns:th="http://thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>Departamento</title>
+<title>Propietario</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 </head>
 <body>
 <div>
 <div class="container">
-<h5>Crud de Departamento</h5>
+<h5>Crud de Propietario</h5>
 	 <div class="col-md-23" style="margin-top: 3%">
 		<div class="row" style="height: 80px">
             <div class="col-md-4">
@@ -20,7 +20,7 @@
                     style="width: 150px">Filtrar</button>
             </div>
             <div class="col-md-2">
-                <a type="button"  class='btn btn-success' style="width: 150px" th:href="@{/newDepartamento}">Registrar</a>
+                <a type="button"  class='btn btn-success' style="width: 150px" th:href="@{/newPropietario}">Registrar</a>
             </div>
         </div>
 		<div class="row">
@@ -30,35 +30,38 @@
 						<thead>
 							<tr>
 								<th>ID</th>
-								<th>Número de Departamento</th>
-								<th>¿Habitado?</th>
-								<th>Condiciones</th>
-								<th>Metros Cuadrados</th>
-								<th>Porcentaje Indiviso</th>
-								<th>Teléfono</th>
-								<th>Tipo de Departamento</th>
-								<th>Periodo de Contrato</th>
-								<th>Edificio</th>
+								<th>Nombre</th>
+								<th>Apellido Paterno</th>
+								<th>Apellido Materno</th>
+								<th>Tipo de Documento</th>
+								<th>Nro de Documento</th>
+								<th>Fecha de Nacimiento</th>
+								<th>Email</th>
+								<th>Celular</th>
+								<th>Mascota 1</th>
+								<th>Mascota 2</th>
+								
 								<th>Opciones</th>
 							</tr>
 						</thead>
 						<tbody>
-							<tr th:each="departamento:${departamentos}">
-								<td th:text="${departamento.idDepartamento}"></td>
-								<td th:text="${departamento.numero}"></td>
-								<td th:text="${departamento.habitado}"></td>
-								<td th:text="${departamento.condiciones}"></td>
-								<td th:text="${departamento.area}"></td>
-								<td th:text="${departamento.porcentajeIndiviso}"></td>
-								<td th:text="${departamento.telefono}"></td>
-								<td th:text="${departamento.tipoDepartamento}"></td>
-								<td th:text="${departamento.periodoContrato}"></td>
-								<td th:text="${departamento.Edificio.nombre}"></td>
+							<tr th:each="propietario:${propietarios}">
+								<td th:text="${propietario.idPropietario}"></td>
+								<td th:text="${propietario.nombre}"></td>
+								<td th:text="${propietario.apePaterno}"></td>
+								<td th:text="${propietario.apeMaterno}"></td>
+								<td th:text="${propietario.TipoDocumento}"></td>
+								<td th:text="${propietario.nroDocumento}"></td>
+								<td th:text="${propietario.fechaNacimiento}"></td>
+								<td th:text="${propietario.email}"></td>
+								<td th:text="${propietario.celular}"></td>
+								<td th:text="${propietario.mascota1}"></td>
+								<td th:text="${propietario.mascota2}"></td>
 								<td>
-								<a th:href="@{/editar/}+${departamento.idDepartamento}" class="btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
+								<a th:href="@{/editarPropietario/}+${propietario.idPropietario}" class="btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
   <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
 </svg></a>
-								<a th:href="@{/eliminar/}+${departamento.idDepartamento}" class="btn">
+								<a th:href="@{/eliminarPropietario/}+${propietario.idPropietario}" class="btn">
 								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
   <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
 </svg></a>

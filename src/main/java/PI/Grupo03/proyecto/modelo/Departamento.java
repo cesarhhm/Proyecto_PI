@@ -24,6 +24,7 @@ public class Departamento {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idDepartamento;
+	
 	private int numero;
 	private int habitado;
 	private String condiciones;

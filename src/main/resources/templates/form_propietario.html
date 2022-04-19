@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Propietario</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container mt-4">
+		<div class="d-flex justify-content-center">
+			<form th:action="@{/savePropietario}" th:object=${propietario} method="POST" class="content">
+				<div class="card">
+					<div class="card-header">
+						<h3>Modulo Propietario</h3>
+					</div>
+					<div class="card-body">
+						<div class="form-group">
+							<label>ID</label>
+							<input th:field="*{idPropietario}" type="text" class="form-control"/>
+						</div>
+						<div class="form-group">
+							<label>Nombre</label>
+							<input th:field="*{nombre}" type="text" class="form-control"/>
+						</div>
+						<div class="form-group">
+							<label>Apellido Paterno</label>
+							<input th:field="*{apePaterno}" type="text" class="form-control"/>
+						</div>
+						<div class="form-group">
+							<label>Apellido Materno</label>
+							<input th:field="*{apeMaterno}" type="text" class="form-control"/>
+						</div>
+						<div class="form-group">
+							<label>Tipo de Documento</label>
+							<select  name="select">
+							  <option  value="">Seleccione Documento</option>
+							  <option th:field="*{TipoDocumento}" value="0">DNI</option>
+							  <option th:field="*{TipoDocumento}" value="1">CE</option>
+							  <option th:field="*{TipoDocumento}" value="2">PASAPORTE</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label>Nro de Documento</label>
+							<input th:field="*{nroDocumento}" type="text" class="form-control"/>
+						</div>
+						<div class="form-group">
+							<label>Fecha de Nacimiento</label>
+							<input th:field="*{fechaNacimiento}" type="text" class="form-control"/>
+						</div>
+						<div class="form-group">
+							<label>Email</label>
+							<input th:field="*{email}" type="text" class="form-control"/>
+						</div>
+						<div class="form-group">
+							<label>Celular</label>
+							<input th:field="*{celular}" type="text" class="form-control"/>
+						</div>
+						<div class="form-group">
+							<label>Mascota 1</label>
+							<input th:field="*{mascota1}" type="text" class="form-control"/>
+						</div>
+												<div class="form-group">
+							<label>Mascota 2</label>
+							<input th:field="*{mascota2}" type="text" class="form-control"/>
+						</div>
+					</div>
+					<div class="card-footer">
+					<input type="submit" value="Guardar" class="btn btn-success">
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	
+	
+</body>
+</html>
