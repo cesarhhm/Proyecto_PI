@@ -2,10 +2,42 @@
 <html xmlns:th="http://thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="js/dataTables.bootstrap.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/bootstrapValidator.js"></script>
+<script type="text/javascript" src="js/global.js"></script>
+
 <title>Create Departamento</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 </head>
 <body>
+    <div>
+
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Cibertec</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+          <a class="nav-link dropdown-toggle" th:href="@{/listarDepartamento}" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Departamento
+          </a>
+          
+                    <a class="nav-link dropdown-toggle" th:href="@{/listarPropietario}" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Propietario
+          </a>
+
+      </ul>
+    </div>
+  </nav>
+</div>
 	<div class="container mt-4">
 		<div class="d-flex justify-content-center">
 			<form th:action="@{/saveDepartamento}" th:object=${departamento} method="POST" class="content">
@@ -14,7 +46,7 @@
 						<h3>Modulo Departamento</h3>
 					</div>
 					<div class="card-body">
-						<div class="form-group">
+						<div class="form-group" style="display: none">
 							<label>ID</label>
 							<input th:field="*{idDepartamento}" type="text" class="form-control"/>
 						</div>
@@ -24,7 +56,12 @@
 						</div>
 						<div class="form-group">
 							<label>¿Habitado?</label>
-							<input th:field="*{habitado}" type="text" class="form-control"/>
+
+							<select th:field="*{habitado}" class="form-control">
+                            	<option value="-1"> [Seleccione] </option>
+                            	<option value="0"> Si </option>
+                            	<option value="1"> No </option>
+                            </select>
 						</div>
 						<div class="form-group">
 							<label>Condiciones</label>
@@ -48,11 +85,13 @@
 						</div>
 						<div class="form-group">
 							<label>Periodo de Contrato</label>
-							<input th:field="*{periodoContrato}" type="text" class="form-control"/>
+							<input th:field="*{periodoContrato}" type="text" data-date-format="DD MMMM YYYY" placeholder="DD-MM-YYYY" class="form-control"/>
 						</div>
 						<div class="form-group">
 							<label>Edificio</label>
-							<input th:field="*{Edificio.idEdificio}" type="text" class="form-control"/>
+							<select th:field="*{Edificio}" id="edificio"  class="form-control">
+							<option th:each="Edificio:${edificios}" th:value="${Edificio.idEdificio}" th:text="${Edificio.nombre}"/>
+							</select>
 						</div>
 					</div>
 					<div class="card-footer">
@@ -62,7 +101,6 @@
 			</form>
 		</div>
 	</div>
-	
 	
 </body>
 </html>

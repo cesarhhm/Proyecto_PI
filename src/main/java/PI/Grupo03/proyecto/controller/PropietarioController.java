@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import PI.Grupo03.proyecto.interfaceService.IDepartamentoService;
 import PI.Grupo03.proyecto.interfaceService.IPropietarioService;
+import PI.Grupo03.proyecto.modelo.Departamento;
 import PI.Grupo03.proyecto.modelo.Propietario;
 
 @Controller
@@ -20,6 +22,8 @@ public class PropietarioController {
 	
 	@Autowired
 	private IPropietarioService service;
+	
+	private IDepartamentoService Departamentoservice;
 	
 	@GetMapping("/listarPropietario")
 	public String listar(Model model) {
@@ -49,7 +53,7 @@ public class PropietarioController {
 	}
 	
 	@GetMapping("/eliminarPropietario/{idPropietario}")	
-	public String delete(Model model, @PathVariable int idPropietario) {
+	public String delete(Model model, @PathVariable int idPropietario) {	
 		service.delete(idPropietario);
 		return "redirect:/listarPropietario";
 	}

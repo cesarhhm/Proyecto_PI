@@ -35,6 +35,11 @@ public class Propietario {
 	private String mascota1;
 	private String mascota2;
 	
+	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "idDepartamento")
+	private Departamento departamento;
+	
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	@Temporal(TemporalType.DATE)
 	private Date fechaNacimiento;
@@ -44,7 +49,8 @@ public class Propietario {
 	}
 
 	public Propietario(int idPropietario, String nombre, String apePaterno, String apeMaterno, int tipoDocumento,
-			int nroDocumento, String email, String celular, String mascota1, String mascota2, Date fechaNacimiento) {
+			int nroDocumento, String email, String celular, String mascota1, String mascota2, Departamento departamento,
+			Date fechaNacimiento) {
 		super();
 		this.idPropietario = idPropietario;
 		this.nombre = nombre;
@@ -56,6 +62,7 @@ public class Propietario {
 		this.celular = celular;
 		this.mascota1 = mascota1;
 		this.mascota2 = mascota2;
+		this.departamento = departamento;
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
@@ -139,6 +146,14 @@ public class Propietario {
 		this.mascota2 = mascota2;
 	}
 
+	public Departamento getDepartamento() {
+		return departamento;
+	}
+
+	public void setDepartamento(Departamento departamento) {
+		this.departamento = departamento;
+	}
+
 	public Date getFechaNacimiento() {
 		return fechaNacimiento;
 	}
@@ -146,7 +161,7 @@ public class Propietario {
 	public void setFechaNacimiento(Date fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
-	
 
 	
+
 }
