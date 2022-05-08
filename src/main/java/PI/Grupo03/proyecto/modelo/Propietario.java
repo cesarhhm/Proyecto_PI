@@ -32,8 +32,6 @@ public class Propietario {
 	private int nroDocumento;
 	private String email;
 	private String celular;
-	private String mascota1;
-	private String mascota2;
 	
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -49,7 +47,7 @@ public class Propietario {
 	}
 
 	public Propietario(int idPropietario, String nombre, String apePaterno, String apeMaterno, int tipoDocumento,
-			int nroDocumento, String email, String celular, String mascota1, String mascota2, Departamento departamento,
+			int nroDocumento, String email, String celular, Departamento departamento,
 			Date fechaNacimiento) {
 		super();
 		this.idPropietario = idPropietario;
@@ -60,8 +58,6 @@ public class Propietario {
 		this.nroDocumento = nroDocumento;
 		this.email = email;
 		this.celular = celular;
-		this.mascota1 = mascota1;
-		this.mascota2 = mascota2;
 		this.departamento = departamento;
 		this.fechaNacimiento = fechaNacimiento;
 	}
@@ -130,21 +126,6 @@ public class Propietario {
 		this.celular = celular;
 	}
 
-	public String getMascota1() {
-		return mascota1;
-	}
-
-	public void setMascota1(String mascota1) {
-		this.mascota1 = mascota1;
-	}
-
-	public String getMascota2() {
-		return mascota2;
-	}
-
-	public void setMascota2(String mascota2) {
-		this.mascota2 = mascota2;
-	}
 
 	public Departamento getDepartamento() {
 		return departamento;

@@ -19,15 +19,25 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
-          <a class="nav-link dropdown-toggle" th:href="@{/listarDepartamento}" id="navbarDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Departamento
-          </a>
-          
-                    <a class="nav-link dropdown-toggle" th:href="@{/listarPropietario}" id="navbarDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Propietario
-          </a>
+
+					<li class="nav-link dropdown"><a class="nav-link"
+						th:href="@{/listarDepartamento}" id="navbarDropdown" role="button"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Departamento </a></li>
+					<li class="nav-link dropdown"><a class="nav-link"
+						th:href="@{/listarPropietario}" id="navbarDropdown" role="button"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Propietario </a></li>
+					<li class="nav-link dropdown"><a class="nav-link"
+						th:href="@{/listarVisitante}" id="navbarDropdown" role="button"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Visitante </a></li>
+					<li class="nav-link dropdown"><a class="nav-link"
+						th:href="@{/listarMascota}" id="navbarDropdown" role="button"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Mascota </a></li>
+
+				
 
       </ul>
     </div>
@@ -71,8 +81,8 @@
 								type="text" class="form-control" />
 						</div>
 						<div class="form-group">
-							<label>Fecha de Nacimiento</label> <input
-								th:field="*{fechaNacimiento}" data-date-format="DD MMMM YYYY" placeholder="DD-MM-YYYY" type="text" class="form-control" />
+							<label>Fecha de Nacimiento</label>  <input
+								th:field="*{fechaNacimiento}" th:value="current_timestamp" data-date-format="DD MMMM YYYY" placeholder="DD-MM-YYYY" type="text" class="form-control" />
 						</div>
 						<div class="form-group">
 							<label>Email</label> <input th:field="*{email}" type="text"
@@ -83,16 +93,13 @@
 								class="form-control" />
 						</div>
 						<div class="form-group">
-							<label>Mascota 1</label> <input th:field="*{mascota1}"
-								type="text" class="form-control" />
-						</div>
-						<div class="form-group">
-							<label>Mascota 2</label> <input th:field="*{mascota2}"
-								type="text" class="form-control" />
-						</div>
-						<div class="form-group">
-							<label>Departamento</label> <input th:field="*{departamento}"
-								type="text" class="form-control" /> 
+							<label>Departamento</label> 
+							<select th:field="*{Departamento}"
+								id="departamento" class="form-control">
+								<option th:each="Departamento:${departamentos}"
+									th:value="${Departamento.idDepartamento}"
+									th:text="${Departamento.numero}" />
+							</select>
 						</div>
 					</div>
 					<div class="card-footer">

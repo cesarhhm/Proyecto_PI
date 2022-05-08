@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Propietario</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+</head>
+<body>
+    <div>
+
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Cibertec</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+
+					<li class="nav-link dropdown"><a class="nav-link"
+						th:href="@{/listarDepartamento}" id="navbarDropdown" role="button"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Departamento </a></li>
+					<li class="nav-link dropdown"><a class="nav-link"
+						th:href="@{/listarPropietario}" id="navbarDropdown" role="button"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Propietario </a></li>
+					<li class="nav-link dropdown"><a class="nav-link"
+						th:href="@{/listarVisitante}" id="navbarDropdown" role="button"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Visitante </a></li>
+					<li class="nav-link dropdown"><a class="nav-link"
+						th:href="@{/listarMascota}" id="navbarDropdown" role="button"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Mascota </a></li>
+
+				
+					
+
+
+      </ul>
+    </div>
+  </nav>
+</div>
+<div>
+<div class="container">
+<h5>Crud de Visitante</h5>
+	 <div class="col-md-23" style="margin-top: 3%">
+		<div class="row" style="height: 80px">
+            <div class="col-md-4">
+                <input class="form-control" id="id_txt_filtro" name="filtro"
+                    placeholder="Ingrese el nombre" type="text" maxlength="30" />
+            </div>
+            <div class="col-md-2">
+                <button  type="button" class="btn btn-primary" id="id_btn_filtrar"
+                    style="width: 150px">Filtrar</button>
+            </div>
+            <div class="col-md-2">
+                <a type="button"  class='btn btn-success' style="width: 150px" th:href="@{/newVisitante}">Registrar</a>
+            </div>
+        </div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="content">
+					<table class="table table-striped table-bordered">
+						<thead>
+							<tr>
+								<th>ID</th>
+								<th>Nombre</th>
+								<th>Apellido Paterno</th>
+								<th>Apellido Materno</th>
+								<th>Tipo de Documento</th>
+								<th>Nro de Documento</th>
+								<th>Fecha de Nacimiento</th>
+								<th>Email</th>
+								<th>Celular</th>
+								<th>Departamento</th>
+								<th>Opciones</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="visitante:${visitantes}">
+								<td th:text="${visitante.idVisitante}"></td>
+								<td th:text="${visitante.nombre}"></td>
+								<td th:text="${visitante.apePaterno}"></td>
+								<td th:text="${visitante.apeMaterno}"></td>
+								<td th:text="${visitante.tipoDocumento}"></td>
+								<td th:text="${visitante.nroDocumento}"></td>
+								<td th:text="${visitante.fechaNacimiento}"></td>
+								<td th:text="${visitante.email}"></td>
+								<td th:text="${visitante.celular}"></td>
+								<td th:text="${visitante.Departamento.numero}"></td>
+								<td>
+								<a th:href="@{/editarVisitante/}+${visitante.idVisitante}" class="btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
+  <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
+</svg></a>
+								<a th:href="@{/eliminarVisitante/}+${visitante.idVisitante}" class="btn">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+  <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
+</svg></a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

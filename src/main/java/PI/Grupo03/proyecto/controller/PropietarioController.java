@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import PI.Grupo03.proyecto.interfaceService.IDepartamentoService;
 import PI.Grupo03.proyecto.interfaceService.IPropietarioService;
 import PI.Grupo03.proyecto.modelo.Departamento;
+import PI.Grupo03.proyecto.modelo.Edificio;
 import PI.Grupo03.proyecto.modelo.Propietario;
 
 @Controller
@@ -23,6 +24,7 @@ public class PropietarioController {
 	@Autowired
 	private IPropietarioService service;
 	
+	@Autowired
 	private IDepartamentoService Departamentoservice;
 	
 	@GetMapping("/listarPropietario")
@@ -35,7 +37,9 @@ public class PropietarioController {
 	
 	@GetMapping("/newPropietario")
 	public String agregar(Model model) {
+		List<Departamento> listar = Departamentoservice.listar();
 		model.addAttribute("propietario", new Propietario());
+		model.addAttribute("departamentos", listar);
 		return "form_propietario";
 	}
 	
@@ -47,8 +51,10 @@ public class PropietarioController {
 	
 	@GetMapping("/editarPropietario/{idPropietario}")	
 	public String editar(@PathVariable int idPropietario ,Model model) {
+		List<Departamento> listar = Departamentoservice.listar();
 		Optional<Propietario>propietario=service.listarId(idPropietario);
 		model.addAttribute("propietario", propietario);
+		model.addAttribute("departamentos", listar);
 		return "form_propietario";
 	}
 	

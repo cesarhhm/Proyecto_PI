@@ -17,15 +17,25 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
-          <a class="nav-link dropdown-toggle" th:href="@{/listarDepartamento}" id="navbarDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Departamento
-          </a>
-          
-                    <a class="nav-link dropdown-toggle" th:href="@{/listarPropietario}" id="navbarDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Propietario
-          </a>
+
+					<li class="nav-link dropdown"><a class="nav-link"
+						th:href="@{/listarDepartamento}" id="navbarDropdown" role="button"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Departamento </a></li>
+					<li class="nav-link dropdown"><a class="nav-link"
+						th:href="@{/listarPropietario}" id="navbarDropdown" role="button"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Propietario </a></li>
+					<li class="nav-link dropdown"><a class="nav-link"
+						th:href="@{/listarVisitante}" id="navbarDropdown" role="button"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Visitante </a></li>
+					<li class="nav-link dropdown"><a class="nav-link"
+						th:href="@{/listarMascota}" id="navbarDropdown" role="button"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Mascota </a></li>
+
+				
 
       </ul>
     </div>

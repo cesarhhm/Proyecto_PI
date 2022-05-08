@@ -16,15 +16,25 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
-          <a class="nav-link dropdown-toggle" th:href="@{/listarDepartamento}" id="navbarDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Departamento
-          </a>
-          
-                    <a class="nav-link dropdown-toggle" th:href="@{/listarPropietario}" id="navbarDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Propietario
-          </a>
+
+					<li class="nav-link dropdown"><a class="nav-link"
+						th:href="@{/listarDepartamento}" id="navbarDropdown" role="button"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Departamento </a></li>
+					<li class="nav-link dropdown"><a class="nav-link"
+						th:href="@{/listarPropietario}" id="navbarDropdown" role="button"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Propietario </a></li>
+					<li class="nav-link dropdown"><a class="nav-link"
+						th:href="@{/listarVisitante}" id="navbarDropdown" role="button"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Visitante </a></li>
+					<li class="nav-link dropdown"><a class="nav-link"
+						th:href="@{/listarMascota}" id="navbarDropdown" role="button"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Mascota </a></li>
+
+				
 
       </ul>
     </div>
@@ -62,8 +72,6 @@
 								<th>Fecha de Nacimiento</th>
 								<th>Email</th>
 								<th>Celular</th>
-								<th>Mascota 1</th>
-								<th>Mascota 2</th>
 								<th>Departamento</th>
 								<th>Opciones</th>
 							</tr>
@@ -79,8 +87,6 @@
 								<td th:text="${propietario.fechaNacimiento}"></td>
 								<td th:text="${propietario.email}"></td>
 								<td th:text="${propietario.celular}"></td>
-								<td th:text="${propietario.mascota1}"></td>
-								<td th:text="${propietario.mascota2}"></td>
 								<td th:text="${propietario.Departamento.numero}"></td>
 								<td>
 								<a th:href="@{/editarPropietario/}+${propietario.idPropietario}" class="btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
