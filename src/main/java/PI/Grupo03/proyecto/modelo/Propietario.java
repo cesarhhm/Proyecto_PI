@@ -13,6 +13,9 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -38,8 +41,8 @@ public class Propietario {
 	@JoinColumn(name = "idDepartamento")
 	private Departamento departamento;
 	
-	@JsonFormat(pattern = "yyyy-MM-dd")
 	@Temporal(TemporalType.DATE)
+	@DateTimeFormat (iso= ISO.DATE)
 	private Date fechaNacimiento;
 	
 	public Propietario() {
