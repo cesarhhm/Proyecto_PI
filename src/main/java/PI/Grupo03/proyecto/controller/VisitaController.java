@@ -1,5 +1,6 @@
 package PI.Grupo03.proyecto.controller;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -11,11 +12,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import PI.Grupo03.proyecto.interfaceService.IVisitanteService;
 import PI.Grupo03.proyecto.interfaceService.IPropietarioService;
 import PI.Grupo03.proyecto.interfaceService.IVisitaService;
-import PI.Grupo03.proyecto.modelo.Visita;
+import PI.Grupo03.proyecto.interfaceService.IVisitanteService;
 import PI.Grupo03.proyecto.modelo.Propietario;
+import PI.Grupo03.proyecto.modelo.Visita;
 import PI.Grupo03.proyecto.modelo.Visitante;
 
 @Controller
@@ -46,7 +47,8 @@ public class VisitaController {
 		model.addAttribute("visita", new Visita());
 		model.addAttribute("propietarios", listarPropietario);
 		model.addAttribute("visitantes", listarVisitante);
-		return "form_propietario";
+		((Visita) model).setFechaEntrada(new Date());
+		return "form_visita";
 	}
 	
 	@PostMapping("/saveVisita")
