@@ -11,5 +11,6 @@ public interface IVisitaService {
 	public Optional<Visita>listarId(int idVisita);
 	public int save(Visita v);
 	public void delete(int idVisita);
+	//public List<Visita> listaPorNombreLike(String nombre);
 
 }

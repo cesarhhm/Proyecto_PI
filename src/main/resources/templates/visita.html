@@ -77,7 +77,9 @@
 							<thead>
 								<tr>
 									<th>ID</th>
+									<th>DNI</th>
 									<th>Visitante</th>
+									<th>DNI</th>
 									<th>Propietario</th>
 									<th>Fecha de Ingreso</th>
 									<th>Fecha de Salida</th>
@@ -87,13 +89,15 @@
 							<tbody>
 								<tr th:each="visita:${visitas}">
 									<td th:text="${visita.idVisita}"></td>
+									<td th:text="${visita.Visitante.nroDocumento}"></td>
 									<td th:text="${visita.Visitante.nombre}"></td>
+									<td th:text="${visita.Propietario.nroDocumento}"></td>
 									<td th:text="${visita.Propietario.nombre}"></td>
 									<td th:text="${visita.fechaEntrada}"></td>
 									<td th:text="${visita.fechaSalida}"></td>
 									<td th:text="${visita.estado}"></td>
 									<td>
-										<a th:href="@{/editarVisita/}+${visita.idVisita}" class="btn"><svg
+										<a th:href="@{/salidaVisita/}+${visita.idVisita}" class="btn"><svg
 												xmlns="http://www.w3.org/2000/svg" width="16" height="16"
 												fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
 												<path

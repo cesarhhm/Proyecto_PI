@@ -43,5 +43,11 @@ public class VisitaService implements IVisitaService{
 		
 	}
 
+	//@Override
+	//public List<Visita> listaPorNombreLike(String nombre) {
+		// TODO Auto-generated method stub
+		//return (List<Visita>)data.findByNombreLike(nombre);
+	//}
+
 	
 }

@@ -46,7 +46,7 @@ public class VisitaController {
 		model.addAttribute("visita", new Visita());
 		model.addAttribute("propietarios", listarPropietario);
 		model.addAttribute("visitantes", listarVisitante);
-		return "form_propietario";
+		return "form_visita";
 	}
 	
 	@PostMapping("/saveVisita")
@@ -55,7 +55,7 @@ public class VisitaController {
 		return "redirect:/listarVisita";
 	}
 	
-	@GetMapping("/editarVisita/{idVisita}")	
+	@GetMapping("/salidaVisita/{idVisita}")	
 	public String editar(@PathVariable int idVisita ,Model model) {
 		List<Propietario> listarPropietario = Propietarioservice.listar();
 		List<Visitante> listarVisitante = Visitanteservice.listar();
@@ -63,7 +63,7 @@ public class VisitaController {
 		model.addAttribute("visita", visita);
 		model.addAttribute("propietarios", listarPropietario);
 		model.addAttribute("visitantes", listarVisitante);
-		return "form_visita";
+		return "form_visitasalida";
 	}
 	
 	@GetMapping("/eliminarVisita/{idVisita}")	
@@ -71,5 +71,6 @@ public class VisitaController {
 		service.delete(idVisita);
 		return "redirect:/listarVisita";
 	}
+	
 	
 }

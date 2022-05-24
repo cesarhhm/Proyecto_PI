@@ -28,8 +28,8 @@ public class Visita {
 	private int idVisita;
 	private int estado;
 	
-    @DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+	@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm:ss")
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss", timezone = "GMT+8")
 	private Date fechaEntrada;
 	
     @DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
