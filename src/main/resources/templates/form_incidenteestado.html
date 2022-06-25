@@ -10,7 +10,7 @@
 <script type="text/javascript" src="js/bootstrapValidator.js"></script>
 <script type="text/javascript" src="js/global.js"></script>
 
-<title>Create Departamento</title>
+<title>Create Visita</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 </head>
 <body>
@@ -41,10 +41,6 @@
 						th:href="@{/listarMascota}" id="navbarDropdown" role="button"
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							Mascota </a></li>
-					<li class="nav-link dropdown"><a class="nav-link"
-						th:href="@{/listarVisita}" id="navbarDropdown" role="button"
-						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							Visita </a></li>
 
 				
 
@@ -54,62 +50,51 @@
 </div>
 	<div class="container mt-4">
 		<div class="d-flex justify-content-center">
-			<form th:action="@{/saveDepartamento}" th:object=${departamento} method="POST" class="content">
+			<form th:action="@{/saveIncidente}" th:object=${incidentes} method="POST" class="content">
 				<div class="card">
 					<div class="card-header">
-						<h3>Modulo Departamento</h3>
+						<h3>Hora de Salida</h3>
 					</div>
 					<div class="card-body">
-						<div class="form-group" style="display: none">
+						<div class="form-group">
 							<label>ID</label>
-							<input th:field="*{idDepartamento}" type="text" class="form-control"/>
+							<input th:field="*{idIncidentes}" type="text" class="form-control" readonly="readonly" />
 						</div>
-						<div class="form-group">
-							<label>N�mero de Departamento</label>
-							<input th:field="*{numero}" type="text" class="form-control"/>
-						</div>
-						<div class="form-group">
-							<label>�Habitado?</label>
-
-							<select th:field="*{habitado}" class="form-control">
-                            	<option value="-1"> [Seleccione] </option>
-                            	<option value="0"> Si </option>
-                            	<option value="1"> No </option>
-                            </select>
-						</div>
-						<div class="form-group">
-							<label>Condiciones</label>
-							<input th:field="*{condiciones}" type="text" class="form-control"/>
-						</div>
-						<div class="form-group">
-							<label>Metros Cuadrados</label>
-							<input th:field="*{area}" type="text" class="form-control"/>
-						</div>
-						<div class="form-group">
-							<label>Porcentaje Indiviso</label>
-							<input th:field="*{porcentajeIndiviso}" type="text" class="form-control"/>
-						</div>
-						<div class="form-group">
-							<label>Tel�fono</label>
-							<input th:field="*{telefono}" type="text" class="form-control"/>
-						</div>
-						<div class="form-group">
-							<label>Tipo de Departamento</label>
-							<input th:field="*{tipoDepartamento}" type="text" class="form-control"/>
-						</div>
-						<div class="form-group">
-							<label>Periodo de Contrato</label>
-							<input th:field="*{periodoContrato}" type="date" data-date-format="DD MMMM YYYY" placeholder="DD-MM-YYYY" class="form-control"/>
-						</div>
-						<div class="form-group">
+						<div class="form-group" style="display: none">
 							<label>Edificio</label>
-							<select th:field="*{Edificio}" id="edificio"  class="form-control">
-							<option th:each="Edificio:${edificios}" th:value="${Edificio.idEdificio}" th:text="${Edificio.nombre}"/>
+							<select th:field="*{Edificio}" id="edificio" class="form-control" >
+								<option th:each="Edificio:${edificios}" th:value="${Edificio.idEdificio}"
+									th:text="${Edificio.nombre}" />
 							</select>
+						</div>
+						<div class="form-group">
+							<label>Departamento</label>
+							<select th:field="*{Departamento}" id="departamento" class="form-control" readonly="readonly">
+								<option th:each="Departamento:${departamentos}" th:value="${Departamento.idDepartamento}"
+									th:text="${Departamento.numero}" />
+							</select>
+						</div>
+						<div class="form-group">
+							<label>Causas de incidente</label>
+							<select th:field="*{CausaIncidente}" id="causaincidente" class="form-control" readonly="readonly">
+								<option th:each="CausaIncidente:${causaincidentes}" th:value="${CausaIncidente.idCausaIncidente}"
+									th:text="${CausaIncidente.nombre}" />
+							</select>
+						</div>
+						<div class="form-group">
+							<label>Comentario</label>
+							<input th:field="*{comentario}" type="text" class="form-control" readonly="readonly"/>
+						</div>
+						<div class="form-group">
+							<label>Estado</label>
+							<select th:field="*{estado}" class="form-control">
+                            	<option value="0"> No atendido </option>
+                            	<option value="1"> Atendido </option>
+                            </select>
 						</div>
 					</div>
 					<div class="card-footer">
-					<input type="submit" value="Guardar" class="btn btn-success">
+					<input type="submit" id="boton1" value="Guardar" class="btn btn-success">
 					</div>
 				</div>
 			</form>
@@ -117,5 +102,3 @@
 	</div>
 	
 </body>
-
-</html>

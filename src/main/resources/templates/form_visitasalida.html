@@ -60,11 +60,11 @@
 							<label>ID</label>
 							<input th:field="*{idVisita}" type="text" class="form-control"/>
 						</div>
-						<div class="form-group" >
+						<div class="form-group" style="display: none">
 							<label>Visitante</label>
 							<input th:field="*{Visitante.idVisitante}" type="text" class="form-control"/>
 						</div>
-						<div class="form-group">
+						<div class="form-group" style="display: none">
 							<label>Propietario</label>
 							<input th:field="*{Propietario.idPropietario}" type="text" class="form-control"/>
 						</div>
@@ -74,7 +74,7 @@
 						</div>
 						<div class="form-group">
 							<label>Fecha y Hora de salida</label>
-							<input th:field="*{fechaSalida}" type="text" id="fechaActual" readonly="readonly"/>
+							<input th:field="*{fechaSalida}" type="text" class="form-control" id="fechaActual" readonly="readonly"/>
 							<script>
 								var today = new Date();
 								var date =  today.getDate()+ '/' + (today.getMonth() + 1) + '/' + today.getFullYear();
@@ -83,13 +83,20 @@
 								document.getElementById("fechaActual").value = dateTime;
 							</script>
 						</div>
-						<div class="form-group" >
-							
-							<input th:field="*{estado}" value="1" type="text" class="form-control" style="display: none"/>
+						<div class="form-group" style="display: none">
+							<input th:field="*{estado}" id="estado" type="text" class="form-control" />
+							<script>
+								var estado = '1';
+								document.getElementById("estado").value = estado;
+							</script>
+						</div>
+						<div class="form-group">
+							<label>Comentario</label>
+							<input th:field="*{comentario}" type="text" class="form-control"/>
 						</div>
 					</div>
 					<div class="card-footer">
-					<input type="submit" value="Guardar" class="btn btn-success">
+					<input type="submit" id="boton1" value="Guardar" class="btn btn-success">
 					</div>
 				</div>
 			</form>

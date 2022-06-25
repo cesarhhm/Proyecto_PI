@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+	<meta charset="ISO-8859-1">
+
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="js/dataTables.bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/bootstrapValidator.js"></script>
+	<script type="text/javascript" src="js/global.js"></script>
+
+	<title>Create Boleta</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+		integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+</head>
+
+<body>
+	<div>
+
+		<nav class="navbar navbar-expand navbar-dark bg-dark">
+			<a class="navbar-brand" href="#">Cibertec</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+				aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNavDropdown">
+				<ul class="navbar-nav">
+
+					<li class="nav-link dropdown"><a class="nav-link" th:href="@{/listarDepartamento}"
+							id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false">
+							Departamento </a></li>
+					<li class="nav-link dropdown"><a class="nav-link" th:href="@{/listarPropietario}"
+							id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false">
+							Propietario </a></li>
+					<li class="nav-link dropdown"><a class="nav-link" th:href="@{/listarVisitante}" id="navbarDropdown"
+							role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Visitante </a></li>
+					<li class="nav-link dropdown"><a class="nav-link" th:href="@{/listarMascota}" id="navbarDropdown"
+							role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Mascota </a></li>
+					<li class="nav-link dropdown"><a class="nav-link" th:href="@{/listarVisita}" id="navbarDropdown"
+							role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Visita </a></li>
+					<li class="nav-link dropdown"><a class="nav-link"
+						th:href="@{/listarBoleta}" id="navbarDropdown" role="button"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Boleta </a></li>
+					<li class="nav-link dropdown"><a class="nav-link"
+						th:href="@{/listarIncidente}" id="navbarDropdown" role="button"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Incidente </a></li>
+
+
+				</ul>
+			</div>
+		</nav>
+	</div>
+	<div class="container mt-4">
+		<div class="d-flex justify-content-center">
+			<form th:action="@{/saveBoleta}" th:object=${boletas} method="POST" class="content">
+				<div class="card">
+					<div class="card-header">
+						<h3>Modulo Boleta</h3>
+					</div>
+					<div class="card-body">
+						<div class="form-group" style="display: none">
+							<label>ID</label>
+							<input th:field="*{idBoleta}" type="text" class="form-control" />
+						</div>
+						<div class="form-group">
+							<label>Servicio</label>
+							<select th:field="*{Servicio}" id="servicio" class="form-control">
+								<option th:each="Servicio:${servicios}" th:value="${Servicio.idServicio}"
+									th:text="${Servicio.nombre}" />
+							</select>
+						</div>
+						<div class="form-group">
+							<label>Edificio</label>
+							<select th:field="*{Edificio}" id="edificio" class="form-control">
+								<option th:each="Edificio:${edificios}" th:value="${Edificio.idEdificio}"
+									th:text="${Edificio.nombre}" />
+							</select>
+						</div>
+						<div class="form-group">
+							<label>Propietario</label>
+							<select th:field="*{Propietario}" id="propietario" class="form-control">
+								<option th:each="Propietario:${propietarios}" th:value="${Propietario.idPropietario}"
+									th:text="${Propietario.nombre}" />
+							</select>
+						</div>
+						<div class="form-group">
+							<label>Mes</label>
+							<input th:field="*{mes}" type="text" class="form-control" />
+						</div>
+						<div class="form-group">
+							<label>Fecha de Pago</label>  <input
+								th:field="*{fechaPago}" th:value="current_timestamp" data-date-format="DD MMMM YYYY" placeholder="DD-MM-YYYY" type="date" class="form-control" />
+						</div>
+						<div class="form-group" style="display: none">
+							<input th:field="*{estado}" type="text" class="form-control" />
+						</div>	
+					</div>
+					<div class="card-footer">
+						<input type="submit" value="Guardar" class="btn btn-success">
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+</body>
+
+</html>

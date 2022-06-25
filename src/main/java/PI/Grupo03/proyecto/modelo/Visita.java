@@ -27,13 +27,14 @@ public class Visita {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idVisita;
 	private int estado;
+	private String comentario;
 	
 	@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss", timezone = "GMT+8")
 	private Date fechaEntrada;
 	
-    @DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+	@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm:ss")
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss", timezone = "GMT+8")
 	private Date fechaSalida;
 
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
@@ -49,11 +50,12 @@ public class Visita {
 	public Visita() {
 	}
 
-	public Visita(int idVisita, int estado, Date fechaEntrada, Date fechaSalida, Propietario propietario,
+	public Visita(int idVisita, int estado,String comentario, Date fechaEntrada, Date fechaSalida, Propietario propietario,
 			Visitante visitante) {
 		super();
 		this.idVisita = idVisita;
 		this.estado = estado;
+		this.comentario = comentario;
 		this.fechaEntrada = fechaEntrada;
 		this.fechaSalida = fechaSalida;
 		this.propietario = propietario;
@@ -66,6 +68,14 @@ public class Visita {
 
 	public void setIdVisita(int idVisita) {
 		this.idVisita = idVisita;
+	}
+	
+	public String getComentario() {
+		return comentario;
+	}
+
+	public void setComentario(String comentario) {
+		this.comentario = comentario;
 	}
 
 	public int getEstado() {

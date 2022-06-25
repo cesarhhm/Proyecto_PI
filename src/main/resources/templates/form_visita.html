@@ -62,11 +62,15 @@
 						</div>
 						<div class="form-group">
 							<label>Visitante</label>
-							<input th:field="*{Visitante.idVisitante}" type="text" class="form-control"/>
+							<select th:field="*{Visitante}" id="visita"  class="form-control">
+							<option th:each="Visitante:${visitantes}" th:value="${Visitante.idVisitante}" th:text="${Visitante.nroDocumento}"/>
+							</select>
 						</div>
 						<div class="form-group">
 							<label>Propietario</label>
-							<input th:field="*{Propietario.idPropietario}" type="text" class="form-control"/>
+							<select th:field="*{Propietario}" id="propietario"  class="form-control">
+							<option th:each="Propietario:${propietarios}" th:value="${Propietario.idPropietario}" th:text="${Propietario.nroDocumento}"/>
+							</select>
 						</div>
 						<div class="form-group">
 							<label>Fecha y Hora de ingreso</label>

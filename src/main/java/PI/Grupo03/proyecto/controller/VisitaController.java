@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import PI.Grupo03.proyecto.interfaceService.IVisitanteService;
 import PI.Grupo03.proyecto.interfaceService.IPropietarioService;
 import PI.Grupo03.proyecto.interfaceService.IVisitaService;
-import PI.Grupo03.proyecto.modelo.Visita;
+import PI.Grupo03.proyecto.interfaceService.IVisitanteService;
 import PI.Grupo03.proyecto.modelo.Propietario;
+import PI.Grupo03.proyecto.modelo.Visita;
 import PI.Grupo03.proyecto.modelo.Visitante;
 
 @Controller

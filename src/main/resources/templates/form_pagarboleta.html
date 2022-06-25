@@ -10,7 +10,7 @@
 <script type="text/javascript" src="js/bootstrapValidator.js"></script>
 <script type="text/javascript" src="js/global.js"></script>
 
-<title>Create Departamento</title>
+<title>Create Paga Boleta</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 </head>
 <body>
@@ -41,10 +41,6 @@
 						th:href="@{/listarMascota}" id="navbarDropdown" role="button"
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							Mascota </a></li>
-					<li class="nav-link dropdown"><a class="nav-link"
-						th:href="@{/listarVisita}" id="navbarDropdown" role="button"
-						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							Visita </a></li>
 
 				
 
@@ -54,62 +50,51 @@
 </div>
 	<div class="container mt-4">
 		<div class="d-flex justify-content-center">
-			<form th:action="@{/saveDepartamento}" th:object=${departamento} method="POST" class="content">
+			<form th:action="@{/pagarBoleta}" th:object=${boletas} method="POST" class="content">
 				<div class="card">
 					<div class="card-header">
-						<h3>Modulo Departamento</h3>
+						<h3>Pagar Boleta</h3>
 					</div>
-					<div class="card-body">
+<div class="card-body">
 						<div class="form-group" style="display: none">
 							<label>ID</label>
-							<input th:field="*{idDepartamento}" type="text" class="form-control"/>
+							<input th:field="*{idBoleta}" type="text" class="form-control" />
 						</div>
 						<div class="form-group">
-							<label>N�mero de Departamento</label>
-							<input th:field="*{numero}" type="text" class="form-control"/>
-						</div>
-						<div class="form-group">
-							<label>�Habitado?</label>
-
-							<select th:field="*{habitado}" class="form-control">
-                            	<option value="-1"> [Seleccione] </option>
-                            	<option value="0"> Si </option>
-                            	<option value="1"> No </option>
-                            </select>
-						</div>
-						<div class="form-group">
-							<label>Condiciones</label>
-							<input th:field="*{condiciones}" type="text" class="form-control"/>
-						</div>
-						<div class="form-group">
-							<label>Metros Cuadrados</label>
-							<input th:field="*{area}" type="text" class="form-control"/>
-						</div>
-						<div class="form-group">
-							<label>Porcentaje Indiviso</label>
-							<input th:field="*{porcentajeIndiviso}" type="text" class="form-control"/>
-						</div>
-						<div class="form-group">
-							<label>Tel�fono</label>
-							<input th:field="*{telefono}" type="text" class="form-control"/>
-						</div>
-						<div class="form-group">
-							<label>Tipo de Departamento</label>
-							<input th:field="*{tipoDepartamento}" type="text" class="form-control"/>
-						</div>
-						<div class="form-group">
-							<label>Periodo de Contrato</label>
-							<input th:field="*{periodoContrato}" type="date" data-date-format="DD MMMM YYYY" placeholder="DD-MM-YYYY" class="form-control"/>
+							<label>Servicio</label>
+							<select th:field="*{Servicio}" id="servicio" class="form-control">
+								<option th:each="Servicio:${servicios}" th:value="${Servicio.idServicio}"
+									th:text="${Servicio.nombre}" />
+							</select>
 						</div>
 						<div class="form-group">
 							<label>Edificio</label>
-							<select th:field="*{Edificio}" id="edificio"  class="form-control">
-							<option th:each="Edificio:${edificios}" th:value="${Edificio.idEdificio}" th:text="${Edificio.nombre}"/>
+							<select th:field="*{Edificio}" id="edificio" class="form-control">
+								<option th:each="Edificio:${edificios}" th:value="${Edificio.idEdificio}"
+									th:text="${Edificio.nombre}" />
 							</select>
 						</div>
+						<div class="form-group">
+							<label>Propietario</label>
+							<select th:field="*{Propietario}" id="propietario" class="form-control">
+								<option th:each="Propietario:${propietarios}" th:value="${Propietario.idPropietario}"
+									th:text="${Propietario.nombre}" />
+							</select>
+						</div>
+						<div class="form-group">
+							<label>Mes</label>
+							<input th:field="*{mes}" type="text" class="form-control" />
+						</div>
+						<div class="form-group">
+							<label>Fecha de Pago</label>  <input
+								th:field="*{fechaPago}" th:value="current_timestamp" data-date-format="DD MMMM YYYY" placeholder="DD-MM-YYYY" type="date" class="form-control" />
+						</div>
+						<div class="form-group" style="display: none">
+							<input th:field="*{estado}" type="text" class="form-control" />
+						</div>	
 					</div>
 					<div class="card-footer">
-					<input type="submit" value="Guardar" class="btn btn-success">
+					<input type="submit" id="boton1" value="Guardar" class="btn btn-success">
 					</div>
 				</div>
 			</form>
@@ -117,5 +102,3 @@
 	</div>
 	
 </body>
-
-</html>
