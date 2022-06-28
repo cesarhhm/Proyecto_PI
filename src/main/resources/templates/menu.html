@@ -37,12 +37,20 @@
 						th:href="@{/listarVisita}" id="navbarDropdown" role="button"
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							Visita </a></li>
+													<li class="nav-link dropdown"><a class="nav-link"
+						th:href="@{/listarBoleta}" id="navbarDropdown" role="button"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Boleta </a></li>
+						<li class="nav-link dropdown"><a class="nav-link"
+						th:href="@{/listarIncidente}" id="navbarDropdown" role="button"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Incidente </a></li>
 
 				</ul>
 			</div>
 			<form th:action="@{/logout}" method="post">
-			<a class="navbar-brand" href="#">Cerrar Sesion</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse"
+			<a th:action="@{/logout}" method="post" class="navbar-brand">Cerrar Sesion</a>
+			<button th:action="@{/logout}" method="post" class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
 				aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>

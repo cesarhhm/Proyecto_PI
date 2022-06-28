@@ -29,6 +29,7 @@ public class PropietarioController {
 	
 	@GetMapping("/listarPropietario")
 	public String listar(Model model) {
+		String palabraClave="Cesar";
 		List<Propietario>propietarios=service.listar();
 		model.addAttribute("propietarios", propietarios);
 		return "propietario";

@@ -16,6 +16,7 @@ public class PropietarioService implements IPropietarioService {
 	@Autowired
 	private IPropietario data;
 	
+	
 	@Override
 	public List<Propietario> listar() {
 		return (List<Propietario>)data.findAll();
